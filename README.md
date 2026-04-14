@@ -1,6 +1,6 @@
 # CGC Grower Climate & Wildfire Risk Assessment
 ### Python/arcpy Geospatial Pipeline
-**Brandon Boldt** | FRCC GIS Program | Spring 2026
+**Brandon Boldt**
 
 ---
 
