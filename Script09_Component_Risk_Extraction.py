@@ -42,8 +42,7 @@ import os
 # ── USER PARAMETERS ──────────────────────────────────────────────────────────
 
 # Geodatabase path
-gdb = r"C:\Users\Brandon Boldt\OneDrive\Documents\FRCC\CGC_ClimateHazard_Project\CGC_ClimateHazard.gdb"
-
+gdb = r"C:\Users\Brandon Boldt\OneDrive\Documents\FRCC\CGC_ClimateHazard_Project\CGC_ClimateHazard_Project\CGC_ClimateHazard.gdb"
 # Scratch workspace for intermediate zonal statistics tables
 scratch_gdb = arcpy.env.scratchGDB
 
@@ -202,13 +201,16 @@ RASTER_FIELD_MAP = [
     ("PrecipRisk_2040_2069", "PrecipRisk_Mean_40_69"),
     ("PrecipRisk_2070_2099", "PrecipRisk_Mean_70_99"),
     ("WHP_Risk",             "WHP_Risk_Mean"),
+    ("Precip_PctChange_2010_2039", "PrecipDelta_10_39"),
+    ("Precip_PctChange_2040_2069", "PrecipDelta_40_69"),
+    ("Precip_PctChange_2070_2099", "PrecipDelta_70_99"),
 ]
 
 raster_names = [r for r, _ in RASTER_FIELD_MAP]
 
 # ── Feature class paths ───────────────────────────────────────────────────────
-farms_fc      = os.path.join(gdb, "Inputs", "CGC_Farms")
-buffer_fc     = os.path.join(gdb, "Intermediate", "CGC_Farm_Buffers_5km")
+farms_fc = os.path.join(gdb, "CGC_Farm_Risk_Scores")
+buffer_fc = os.path.join(gdb, "Intermediate", "CGC_Farms_5km_Buffer")
 
 # ── Validate ──────────────────────────────────────────────────────────────────
 validate_inputs(gdb, raster_names, farms_fc, buffer_fc)
